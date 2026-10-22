@@ -3,7 +3,7 @@
 #   operatingsystem being used.
 #
 class nsswitch::params {
-  case $facts['operatingsystem'] {
+  case $facts['os']['name'] {
     /AlmaLinux|CentOS|RedHat|Rocky|Amazon|OEL|OracleLinux|Scientific|CloudLinux/: {
       if versioncmp($facts[operatingsystemmajrelease], '6') > 0 {
         $passwd_default     = ['files','sss']
